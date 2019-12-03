@@ -62,6 +62,10 @@ public class Customer {
     public void setEmail(String email) {
         this.email = email;
     }
+    
+    public int getCustomerId(){
+        return customerId;
+    }
 
     public List<Account> getAccountList() {
         return accountList;
