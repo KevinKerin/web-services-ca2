@@ -7,11 +7,13 @@ package com.mycompany.webservicesca2.models;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author kevinkerin
  */
+@XmlRootElement
 public class Account {
 
     private int sortCode;

@@ -6,12 +6,14 @@
 package com.mycompany.webservicesca2.models;
 
 import java.util.Date;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author kevinkerin
  */
-
+//Unsure about XMLRootElement line - please confirm
+@XmlRootElement
 public class Transaction {
     
     private String transactionType;

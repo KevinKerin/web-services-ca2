@@ -7,11 +7,14 @@ package com.mycompany.webservicesca2.models;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author kevinkerin
  */
+//Unsure about XMLRootElement line - please confirm
+@XmlRootElement
 public class Customer {
 
     private String firstName;
@@ -21,6 +24,8 @@ public class Customer {
     private String addressLine3;
     private String email;
     private List<Account> accountList;
+//    How to make ID incremental?
+    private int customerId;
 
     public Customer(String firstName, String lastName, String email) {
         this.firstName = firstName;
