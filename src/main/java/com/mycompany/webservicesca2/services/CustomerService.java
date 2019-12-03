@@ -27,4 +27,12 @@ public class CustomerService {
         customerList.add(niall);
     }
     
+    public List<Customer> getCustomers(){
+        return customerList;
+    }
+    
+    public Customer getCustomer(int id){
+        return customerList.get(id-1);
+    }
+    
 }
