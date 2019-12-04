@@ -1,19 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.mycompany.webservicesca2.models;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author kevinkerin
+ * @author 
  */
-//Unsure about XMLRootElement line - please confirm
+
+// [TO-DO] Unsure about XMLRootElement line - please confirm
+// [TO-DO] How to make ID incremental?
+
 @XmlRootElement
 public class Customer {
 
@@ -23,9 +25,13 @@ public class Customer {
     private String addressLine2;
     private String addressLine3;
     private String email;
+    //
+    private Map<Long, Account> accounts = new HashMap<>();
+    //
     private List<Account> accountList;
-//    How to make ID incremental?
     private int customerId;
+    
+	public Customer() {}
 
     public Customer(String firstName, String lastName, String email) {
         this.firstName = firstName;
@@ -34,7 +40,7 @@ public class Customer {
         addressLine2 = "n/a";
         addressLine3 = "n/a";
         this.email = email;
-        accountList = new ArrayList<>();
+        accountList = new ArrayList<>();  
     }
 
     public Customer(String firstName, String lastName, String addressLine1, String addressLine2, String addressLine3, String email) {
@@ -62,6 +68,10 @@ public class Customer {
     public void setEmail(String email) {
         this.email = email;
     }
+    
+    public void setCustomerId(int customerId) {
+  		this.customerId = customerId;
+  	}
     
     public int getCustomerId(){
         return customerId;
