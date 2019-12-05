@@ -36,12 +36,11 @@ public class CustomerService {
 		return list;
 	}
 	
-	/*
-
 	public Customer getCustomer(int id) {
 		return list.get(id - 1);
 	}
-
+	
+	/*
 	public Customer createCustomer(Customer c) {
 		c.setCustomerId(list.size() + 1);
 		list.add(c);
