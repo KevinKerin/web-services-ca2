@@ -26,10 +26,10 @@ public class Customer {
     private String addressLine3;
     private String email;
     //
-    private Map<Long, Account> accounts = new HashMap<>();
+    private Map<String, Account> accounts = new HashMap<>();
     //
     private List<Account> accountList;
-    private int customerId;
+    private long customerId = 000L;
     
 	public Customer() {}
 
@@ -41,6 +41,8 @@ public class Customer {
         addressLine3 = "n/a";
         this.email = email;
         accountList = new ArrayList<>();  
+        
+        accounts.put("000L", new Account());
     }
 
     public Customer(String firstName, String lastName, String addressLine1, String addressLine2, String addressLine3, String email) {
@@ -73,7 +75,7 @@ public class Customer {
   		this.customerId = customerId;
   	}
     
-    public int getCustomerId(){
+    public long getCustomerId(){
         return customerId;
     }
 
@@ -104,8 +106,39 @@ public class Customer {
         return null;
     }
 
-    public void createAccount(Account a) {
-        accountList.add(a);
+    
+    
+    
+    
+    
+    public void createAccount(long customerId, int sortCode, long accountNumber, String accountType) {
+    	
+    	String newcustomerId = Long.toString(customerId);
+    	newcustomerId += Long.toString(accountNumber);
+    	
+    	if(!accounts.containsKey(newcustomerId)) {
+    		accounts.put(newcustomerId, new Account(sortCode, accountNumber, accountType, customerId));
+    	}
+    	else {
+    		System.out.println("Account already exists");
+    	}
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

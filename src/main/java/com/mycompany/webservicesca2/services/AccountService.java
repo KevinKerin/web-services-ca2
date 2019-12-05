@@ -14,7 +14,12 @@ public class AccountService {
     List<Account> accountList = new ArrayList<>();
     
     public AccountService(){
-        
+    	
+    	Account acc1 = new Account(990, 000L, "savings", 1001);
+    	Account acc2 = new Account(990, 001L, "deposit", 1001);
     }
+    
+    
+    
     
 }

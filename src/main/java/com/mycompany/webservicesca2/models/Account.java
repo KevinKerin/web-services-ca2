@@ -13,7 +13,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Account {
 
     private int sortCode;
-    private int accountNumber;
+    private long accountNumber;
     private String accountType;
     private double balance;
     private List<Transaction> transactionList;
@@ -22,7 +22,7 @@ public class Account {
         
     }
     
-    public Account(int sortCode, int accountNumber, String accountType) {
+    public Account(int sortCode, long accountNumber, String accountType, long customerId) {
         this.sortCode = sortCode;
         this.accountNumber = accountNumber;
         this.accountType = accountType;
@@ -34,7 +34,7 @@ public class Account {
         return sortCode;
     }
 
-    public int getAccountNumber() {
+    public long getAccountNumber() {
         return accountNumber;
     }
 
