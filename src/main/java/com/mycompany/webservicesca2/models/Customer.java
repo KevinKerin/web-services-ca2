@@ -1,7 +1,6 @@
 
 package com.mycompany.webservicesca2.models;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,33 +18,42 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class Customer {
 
-    private String firstName;
+	private String firstName;
     private String lastName;
     private String addressLine1;
     private String addressLine2;
     private String addressLine3;
     private String email;
+    private Long id;
     //
     private Map<String, Account> accounts = new HashMap<>();
     //
     private List<Account> accountList;
     private long customerId = 000L;
     
-	public Customer() {}
+	public Customer() {  }
 
-    public Customer(String firstName, String lastName, String email) {
+    public Customer(long id, String firstName, String lastName, String email) {
+    	this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        addressLine1 = "n/a";
-        addressLine2 = "n/a";
-        addressLine3 = "n/a";
         this.email = email;
-        accountList = new ArrayList<>();  
+      //  this.addressLine1 = "n/a";
+      //  this.addressLine2 = "n/a";
+      //  this.addressLine3 = "n/a";
+    
+       // this.accountList = new ArrayList<>();  
         
-        accounts.put("000L", new Account());
+        // this.accounts.put("000L", new Account());
+        
+       
+        
+       // createAccount(100L, 001, 999L, "accountType");
     }
 
-    public Customer(String firstName, String lastName, String addressLine1, String addressLine2, String addressLine3, String email) {
+    
+    /*  public Customer(String firstName, String lastName, String addressLine1, String addressLine2, String addressLine3, String email) {
+     
         this.firstName = firstName;
         this.lastName = lastName;
         this.addressLine1 = addressLine1;
@@ -54,67 +62,53 @@ public class Customer {
         this.email = email;
         accountList = new ArrayList<>();
     }
-
-    public String getName() {
-        return firstName + " " + lastName;
-    }
-
-    public String getAddress() {
-        return addressLine1 + "\n" + addressLine2 + "\n" + addressLine3;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
+    */
     
-    public void setCustomerId(int customerId) {
-  		this.customerId = customerId;
-  	}
     
-    public long getCustomerId(){
-        return customerId;
-    }
+    public String getFirstName() {
+		return firstName;
+	}
 
-    public List<Account> getAccountList() {
-        return accountList;
-    }
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
 
-    public Account getAccount(String accountType) throws NullPointerException {
-        try {
-            for (Account a : accountList) {
-                if (a.getAccountType().equalsIgnoreCase(accountType)) {
-                    return a;
-                }
-            }
-            throw new NullPointerException();
-        } catch (NullPointerException e) {
-            System.out.println("Account not found");
-        }
-        return null;
-    }
+	public String getLastName() {
+		return lastName;
+	}
 
-    public Account getAccount(int accountNumber) {
-        for (Account a : accountList) {
-            if (a.getAccountNumber() == accountNumber) {
-                return a;
-            }
-        }
-        return null;
-    }
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
     
     
     
     
+   
     
+    /*
     public void createAccount(long customerId, int sortCode, long accountNumber, String accountType) {
     	
     	String newcustomerId = Long.toString(customerId);
-    	newcustomerId += Long.toString(accountNumber);
+    	newcustomerId = newcustomerId + "_" + Long.toString(accountNumber);
+    	
+    	System.out.println(newcustomerId);
     	
     	if(!accounts.containsKey(newcustomerId)) {
     		accounts.put(newcustomerId, new Account(sortCode, accountNumber, accountType, customerId));
@@ -123,9 +117,9 @@ public class Customer {
     		System.out.println("Account already exists");
     	}
     }
-
+    */
+    
 }
-
 
 
 

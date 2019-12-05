@@ -24,4 +24,9 @@ public class CustomerResource {
         return customerService.getAllCustomers();
     }
     
+    @Path("/{customerId}/accounts")
+	public AccountResource getCommentResource() {
+		return new AccountResource();
+	}
+    
 }

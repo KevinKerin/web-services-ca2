@@ -12,7 +12,7 @@ import java.util.List;
 
 public class CustomerService {
 
-	private static List<Customer> customerList = new ArrayList<>();
+	public static List<Customer> list = new ArrayList<>();
 
 	public static boolean init = true;
 
@@ -20,34 +20,37 @@ public class CustomerService {
 
 		if (init) {
 
-			Customer kevin = new Customer("Kevin", "Kerin", "Ballymac", "Tralee", "Kerry", "kevin@gmail.com");
-			Customer johnathan = new Customer("Johnathan", "Munster", "Drogheda", "Louth", "Louth",
-					"johnathan@gmail.com");
-			Customer niall = new Customer("Niall", "Kelly", "Rathfarnham", "Dublin", "Dublin", "niall@gmail.com");
+			Customer kevin = new Customer(1L, "Kevin", "Kerin", "kkkkkkkkkkevin@gmail.com");
+			Customer johnathan = new Customer(2L, "Johnathan", "Munster", "jjjjjjjjjjjohnathan@gmail.com");
+			Customer niall = new Customer(3L, "Niall", "Kelly", "nnnnnnnnnnnniall@gmail.com");
 
-			customerList.add(kevin);
-			customerList.add(johnathan);
-			customerList.add(niall);
+			list.add(kevin);
+			list.add(johnathan);
+			list.add(niall);
 
 			init = false;
 		}
 	}
 
 	public List<Customer> getAllCustomers() {
-		return customerList;
+		return list;
 	}
+	
+	/*
 
 	public Customer getCustomer(int id) {
-		return customerList.get(id - 1);
+		return list.get(id - 1);
 	}
 
 	public Customer createCustomer(Customer c) {
-		c.setCustomerId(customerList.size() + 1);
-		customerList.add(c);
+		c.setCustomerId(list.size() + 1);
+		list.add(c);
 
 		System.out.println("201 - resource created with path: /customers/" + String.valueOf(c.getCustomerId()));
 
 		return c;
 	}
+	
+	*/
 
 }

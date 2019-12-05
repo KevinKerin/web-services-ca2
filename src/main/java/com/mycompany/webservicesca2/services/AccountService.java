@@ -11,15 +11,26 @@ import java.util.List;
  */
 public class AccountService {
     
-    List<Account> accountList = new ArrayList<>();
+	public static List<Account> accountList = new ArrayList<>();
     
-    public AccountService(){
+    public static boolean init = true;
+    
+    public AccountService() {
+  
+    	if (init) {
     	
     	Account acc1 = new Account(990, 000L, "savings", 1001);
     	Account acc2 = new Account(990, 001L, "deposit", 1001);
+    	
+    	accountList.add(acc1);
+    	accountList.add(acc2);
+    	
+    	init = false;
+    	
+    	}
     }
     
-    
-    
-    
+    public List<Account> getAllAccounts() {
+    	return accountList;
+	}
 }
