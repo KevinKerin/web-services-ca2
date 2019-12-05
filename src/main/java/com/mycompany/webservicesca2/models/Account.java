@@ -11,41 +11,61 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @XmlRootElement
 public class Account {
-
-    private int sortCode;
-    private int accountNumber;
+	
+	private int sortCode;
+    private long accountNumber;
     private String accountType;
     private double balance;
     private List<Transaction> transactionList;
+    private Long customerId;
 
-    public Account(){
-        
-    }
+    public Account() {  }
     
-    public Account(int sortCode, int accountNumber, String accountType) {
+    public Account(int sortCode, long accountNumber, String accountType, long customerId) {
         this.sortCode = sortCode;
         this.accountNumber = accountNumber;
         this.accountType = accountType;
+        this.customerId = customerId;
         this.balance = 0;
         transactionList = new ArrayList<>();
     }
 
+    
     public int getSortCode() {
-        return sortCode;
-    }
+		return sortCode;
+	}
 
-    public int getAccountNumber() {
-        return accountNumber;
-    }
+	public void setSortCode(int sortCode) {
+		this.sortCode = sortCode;
+	}
 
-    public String getAccountType() {
-        return accountType;
-    }
+	public long getAccountNumber() {
+		return accountNumber;
+	}
 
-    public double getBalance() {
-        return balance;
-    }
+	public void setAccountNumber(long accountNumber) {
+		this.accountNumber = accountNumber;
+	}
 
+	public String getAccountType() {
+		return accountType;
+	}
+
+	public void setAccountType(String accountType) {
+		this.accountType = accountType;
+	}
+
+	public Long getCustomerId() {
+		return customerId;
+	}
+
+	public void setCustomerId(Long customerId) {
+		this.customerId = customerId;
+	}
+    
+
+    /*
+    
     public String getTransactionList() {
         String result = "[";
         for (Transaction a : transactionList) {
@@ -59,5 +79,7 @@ public class Account {
         this.balance = t.getNewBalance();
         transactionList.add(t);
     }
+    
+    */
 
 }
